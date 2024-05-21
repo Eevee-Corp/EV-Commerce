@@ -5,17 +5,19 @@ import { fetchProducts } from '../../../src/redux/productSlice';
 
 const Products = () => {
   const dispatch = useDispatch();
-  // const products = useSelector((state) => state.products.products);
-  // const status = useSelector((state) => state.products.status);
-  // const error = useSelector((state) => state.products.error);
+  const products = useSelector((state) => state.products.products);
+  const status = useSelector((state) => state.products.status);
+  const error = useSelector((state) => state.products.error);
 
-  // useEffect(() => {
-  //   if (status === 'idle') {
-  //     dispatch(fetchProducts());
-  //   }
-  // }, [status, dispatch]);
-  let status = 'succeeded';
-  let products = [{id: 1, name: 'shoes', price: 100}, {id: 2, name: 'tree', price: 200}];
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchProducts());
+    }
+  }, [status, dispatch]);
+
+  // hard coded test
+  // let status = 'succeeded';
+  // let products = [{id: 1, name: 'shoes', price: 100}, {id: 2, name: 'tree', price: 200}];
   let content;
 
   if (status === 'loading') {
@@ -27,9 +29,9 @@ const Products = () => {
           <li key={product.id} style={{ margin: '10px 0', border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <h3>{product.name}</h3>
+                <h3>{product.productname}</h3>
                 <p>Price: ${product.price}</p>
-                <p>Quantity: {product.quantity}</p>
+                <p>Quantity: {product.totalinventory}</p>
               </div>
               <button onClick={() => addToCart(product)} style={{ backgroundColor: 'blue', color: 'white', border: 'none', padding: '5px 10px', borderRadius: '5px', cursor: 'pointer' }}>Add to Cart</button>
             </div>

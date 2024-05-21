@@ -1,8 +1,4 @@
-//import supabase from './models/model.js'
-
 const supabase = require('../models/model');
-
-// const itemController = {}; 
 
 exports.getProducts = async(req, res, next) => {
     const { data, error } = await supabase
@@ -18,9 +14,10 @@ res.json(data);
 
 }
 
-
-//itemController.deleteProducts
+// exports.deleteProducts = async (req, res, next) => {
+//   const { id } 
+// }
 
 // module.exports = {
-//     getProducts
+//     addProducts
 // }

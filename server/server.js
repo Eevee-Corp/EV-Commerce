@@ -17,15 +17,18 @@ const {getProducts} = require('./controllers/itemControllers')
 
 app.get('/products', getProducts)
 
-app.post('/postItem'), (req, res) => {
-    //add controller to post item here 
-    // return res.status(200).json(res.locals -----)
-}
+// app.post('/postItem', 
+//   addProducts, 
+//   (req, res) => {
+//   return res.status(200).json(res.locals.addItem)
+// })
 
-app.delete('/deleteItem'), (req, res) => {
-    //add controller to delete item here 
-  // return res.status(200).json(res.locals -----)
-}
+
+// app.delete('/deleteItem',
+//   deleteProduct, 
+//   (req, res) => {
+//   return res.status(200).json(res.locals.deleteItem); 
+// })
 
 //global error handler
 app.use((err, req, res, next) => {
