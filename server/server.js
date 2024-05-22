@@ -23,18 +23,20 @@ app.post('/postItem',
   return res.status(200).json(res.locals.addItem)
 })
 
-
 app.delete('/deleteItem/:id', deleteProducts, (req, res) => {
     return res.status(200).json(res.locals.deleteItem);
   });
-  
+
+app.patch('/updateItem/:id', updateProducts, (req, res) => {
+    return res.status(200).json(res.locals.updateItem);
+  });
 
 //global error handler
 app.use((err, req, res, next) => {
     const defaultErr = {
         log: 'Error in unknown middleware',
         status: 500,
-        message: { err: 'An error occired' }
+        message: { err: 'An error occured' }
     }
     const errorObj = Object.assign({}, defaultErr, err);
     return res.status(errorObj.status).json(errorObj.message); 
