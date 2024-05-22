@@ -2,7 +2,7 @@ const supabase = require('../models/model');
 
 exports.getProducts = async(req, res, next) => {
     console.log("This is get products")
-    const { productname, price, totalinventory } = req.body;
+    const { productname, price, totalinventory, image_url } = req.body;
     console.log(req.body)
 
     const { data, error } = await supabase
@@ -18,43 +18,10 @@ res.json(data);
 
 }
 
-console.log("hi tere")
-
-// exports.addProducts = async (req, res, next) => {
-//     console.log('adding a product...')
-//     // grab properties from request body
-//     const { productname, price, quantity } = req.body;
-  
-//     // insert into favorites DB for that user
-//     const { data, error } = await supabase
-//     .from('user_flights')
-//     .insert({
-//      productname,
-//      price, 
-//      quantity
-//     })
-//     // .select();
-    
-//     if (error) {
-//       console.log(error);
-//       return next({
-//         log: 'problem in addUserFlight controller',
-//         message: {err: error}
-//       })
-//     }
-    
-//     res.locals.flight = data[0];
-    
-//     return next();
-//   }
-
-
-  //this is from dylan's file 
-
 exports.addProducts = async (req, res, next) => {
   console.log('This is addProducts')
   try {
-    const { productid, productname, price, totalinventory } = req.body;
+    const { productid, productname, price, totalinventory, image_url } = req.body;
     console.log(req.body)
 
     const { data, error } = await supabase
@@ -64,6 +31,7 @@ exports.addProducts = async (req, res, next) => {
         productname,
         price,
         totalinventory,
+        image_url
     })
     return next();
   }

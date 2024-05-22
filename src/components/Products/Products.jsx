@@ -8,7 +8,7 @@ const Products = () => {
   const products = useSelector((state) => state.products.products);
   const status = useSelector((state) => state.products.status);
   const error = useSelector((state) => state.products.error);
-  
+
 
   useEffect(() => {
     if (status === 'idle') {
@@ -27,14 +27,19 @@ const Products = () => {
     content = (
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         {products.map((product) => (
-          <li key={product.productid} style={{ margin: '10px 0', border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
+          <li key={product.productid} style={{ margin: '10px 0', border: '1px solid #ccc', padding: '10px', borderRadius: '5px', maxWidth: '1000px',  marginLeft: 'auto', marginRight: 'auto' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <div>
+              <div style={{ fontFamily: 'serif', margin: '40px', fontSize: '20px' }}>
                 <h3>{product.productname}</h3>
                 <p>Price: ${product.price}</p>
                 <p>Quantity: {product.totalinventory}</p>
               </div>
-              <button onClick={() => addToCart(product)} style={{ backgroundColor: 'blue', color: 'white', border: 'none', padding: '5px 10px', borderRadius: '5px', cursor: 'pointer' }}>Add to Cart</button>
+              <div>
+                <img src={`${product.image_url}`} style={{ width: '175px', height: '175px', objectFit: 'cover' }} />
+              </div>
+                <div style={{ margin: '40px' }}>
+                <button onClick={() => addToCart(product)} style={{ backgroundColor: 'blue', color: 'white', border: 'none', padding: '10px 15px', borderRadius: '5px', cursor: 'pointer' }}>Add to Cart</button>
+              </div>
             </div>
           </li>
         ))}

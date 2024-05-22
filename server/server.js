@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 const {getProducts, addProducts, deleteProducts, updateProducts} = require('./controllers/itemControllers')
+// const { uploadImage, getImage } = require('./controllers/imageControllers');
 
 //server our html and css files here 
 // app.use(express.static(path.join(__dirname, '')))
@@ -18,7 +19,7 @@ const {getProducts, addProducts, deleteProducts, updateProducts} = require('./co
 app.get('/products', getProducts)
 
 app.post('/postItem', 
-  addProducts, 
+  addProducts,
   (req, res) => {
   return res.status(200).json(res.locals.addItem)
 })
