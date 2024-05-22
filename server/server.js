@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-const {getProducts} = require('./controllers/itemControllers')
+const {getProducts, addProducts, deleteProducts, updateProducts} = require('./controllers/itemControllers')
 
 //server our html and css files here 
 // app.use(express.static(path.join(__dirname, '')))
@@ -17,18 +17,17 @@ const {getProducts} = require('./controllers/itemControllers')
 
 app.get('/products', getProducts)
 
-// app.post('/postItem', 
-//   addProducts, 
-//   (req, res) => {
-//   return res.status(200).json(res.locals.addItem)
-// })
+app.post('/postItem', 
+  addProducts, 
+  (req, res) => {
+  return res.status(200).json(res.locals.addItem)
+})
 
 
-// app.delete('/deleteItem',
-//   deleteProduct, 
-//   (req, res) => {
-//   return res.status(200).json(res.locals.deleteItem); 
-// })
+app.delete('/deleteItem/:id', deleteProducts, (req, res) => {
+    return res.status(200).json(res.locals.deleteItem);
+  });
+  
 
 //global error handler
 app.use((err, req, res, next) => {
