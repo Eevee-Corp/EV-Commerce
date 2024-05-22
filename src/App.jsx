@@ -3,21 +3,23 @@ import { Route, Routes, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import Nav from './components/Nav/Nav.jsx';
 import Products from './components/Products/Products.jsx';
+import Signup from './components/Signup/Signup.jsx';
+import Login from './components/Login/Login.jsx';
+import Cart from './components/Cart/Cart.jsx';
 
 
 export function App () {
-  const { count } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
   return (
     <div>
       <Nav />
       <Routes>
         <Route path="/" element={<Products />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/contact" element={<Contact />} /> */}
-        {/* <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<NotFound />} /> */}
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/cart" element={<Cart />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </div>
   );

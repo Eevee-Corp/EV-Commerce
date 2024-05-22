@@ -8,6 +8,7 @@ const Products = () => {
   const products = useSelector((state) => state.products.products);
   const status = useSelector((state) => state.products.status);
   const error = useSelector((state) => state.products.error);
+  
 
   useEffect(() => {
     if (status === 'idle') {
@@ -26,7 +27,7 @@ const Products = () => {
     content = (
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         {products.map((product) => (
-          <li key={product.id} style={{ margin: '10px 0', border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
+          <li key={product.productid} style={{ margin: '10px 0', border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
                 <h3>{product.productname}</h3>
