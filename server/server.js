@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+const { login, signup } = require('./controllers/userController')
 const {getProducts, addProducts, deleteProducts, updateProducts} = require('./controllers/itemControllers')
 const { getCart } = require('./controllers/cartController');
 // const { uploadImage, getImage } = require('./controllers/imageControllers');
@@ -16,7 +17,18 @@ const { getCart } = require('./controllers/cartController');
 // app.use(express.static(path.join(__dirname, '')))
 
 //routes
+app.post('/signup', 
+  signup, 
+  (req, res) => {
+  return res.status(200).json(res.locals.newUser);
+});
 
+app.post('/login', 
+  login,
+  (req, res) => {
+    return res.status(200).json(res.locals.login);
+  });
+  
 app.get('/products', getProducts)
 
 app.post('/postItem', 
