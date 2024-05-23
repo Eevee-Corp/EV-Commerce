@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
-    "@supabase/supabase-js": "^2.43.2",
+    "@supabase/supabase-js": "^2.43.3",
     "axios": "^1.7.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
