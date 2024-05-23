@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 const {getProducts, addProducts, deleteProducts, updateProducts} = require('./controllers/itemControllers')
+const { getCart } = require('./controllers/cartController');
 // const { uploadImage, getImage } = require('./controllers/imageControllers');
 
 //server our html and css files here 
@@ -23,6 +24,11 @@ app.post('/postItem',
   (req, res) => {
   return res.status(200).json(res.locals.addItem)
 })
+
+app.get('/cart/:userId', getCart, (req, res) => {
+    res.json(req.cart);
+  });
+  
 
 app.delete('/deleteItem/:id', deleteProducts, (req, res) => {
     return res.status(200).json(res.locals.deleteItem);
