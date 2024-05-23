@@ -1,7 +1,7 @@
 const supabase = require('../models/model');
 
 exports.getProducts = async(req, res, next) => {
-    const { productname, price, totalinventory } = req.body;
+    const { productname, price, totalinventory, image_url } = req.body;
     const { data, error } = await supabase
     .from('product')
     .select('*');
@@ -17,7 +17,7 @@ res.json(data);
 
 exports.addProducts = async (req, res, next) => {
   try {
-    const { productid, productname, price, totalinventory } = req.body;
+    const { productid, productname, price, totalinventory, image_url } = req.body;
 
     // Check if the product already exists
     const { data: existingProduct, error: fetchError } = await supabase
@@ -42,6 +42,7 @@ exports.addProducts = async (req, res, next) => {
         productname,
         price,
         totalinventory,
+        image_url,
       });
 
     if (error) {

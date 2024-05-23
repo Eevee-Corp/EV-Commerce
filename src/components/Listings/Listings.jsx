@@ -22,7 +22,7 @@ const UserProductsPage = () => {
       alert("Please enter both name and price for the product.");
       return;
     }
-    dispatch(addUserProduct({ productid: productId, productname: productName, price: productPrice, totalinventory: productInventory }));
+    dispatch(addUserProduct({ productid: productId, productname: productName, price: productPrice, totalinventory: productInventory, image_url: imageUrl }));
     setProductId('');
     setProductName('');
     setProductPrice('');
