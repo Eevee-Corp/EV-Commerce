@@ -12,7 +12,7 @@ exports.signup = async (req, res, next) => {
   }
 
   const {data, error} = await supabase
-    .from('users')
+    .from('evusers')
     .insert({
       userid,
       email,
@@ -33,7 +33,7 @@ exports.login = async (req, res, next) => {
   
     try {
     const {data, error} = await supabase
-      .from('users')
+      .from('evusers')
       .select()
       .eq('username', username);
     
