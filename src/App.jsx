@@ -6,6 +6,7 @@ import Products from './components/Products/Products.jsx';
 import Signup from './components/Signup/Signup.jsx';
 import Login from './components/Login/Login.jsx';
 import Cart from './components/Cart/Cart.jsx';
+import UserProductsPage from './components/Listings/Listings.jsx';
 
 
 export function App () {
@@ -17,6 +18,7 @@ export function App () {
         <Route path="/" element={<Products />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/listings" element={<UserProductsPage />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
         <Route path="/cart" element={<Cart />} />
         {/* <Route path="*" element={<NotFound />} /> */}
